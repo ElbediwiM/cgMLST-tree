@@ -71,7 +71,7 @@ p <- p +
       "2024" = "#FF4500"
     ),guide = guide_legend(order = 2) 
   )
-# Add a new fill scale for MLST
+# Add a new fill scale for Location
 p <- p +
   new_scale_fill() +  # Reset the fill scale
   geom_fruit(
