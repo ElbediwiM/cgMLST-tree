@@ -1,4 +1,3 @@
-
 # Load libraries
 library(ggtree)
 library(ape)
@@ -8,15 +7,11 @@ library(ggplot2)
 library(ggtreeExtra)
 library(ggnewscale)
 
-
-
 # Load the tree file
 tree <- read.tree("cgmlst.nhx")
 
 # Load the annotation file
 annotation_data <- read.csv("meta_data.csv")
-
-
 
 # Merge tree tip labels with annotation data
 tip_labels <- data.frame(id = tree$tip.label)
@@ -26,14 +21,12 @@ merged_data <- tip_labels %>%
 # Check the merged data
 head(merged_data)
 
-
 #Plot the tree
 p <- ggtree(tree, size = 0.7, layout = "circular", branch.length = "none", open.angle = 10) + 
   geom_tiplab(size = 3, fontface = "bold", offset = 0.3)
 
 # Add annotation data to the tree
 p <- p %<+% merged_data
-
 
 p <- p +
   geom_fruit(
@@ -52,6 +45,7 @@ p <- p +
       "Isolates in this study" = "#FFA500"
     ), guide = guide_legend(order = 1) 
   )
+
 # Add a new fill scale for collection_date
 p <- p +
   new_scale_fill() +  # Reset the fill scale
@@ -71,7 +65,8 @@ p <- p +
       "2024" = "#FF4500"
     ),guide = guide_legend(order = 2) 
   )
-# Add a new fill scale for MLST
+
+# Add a new fill scale for Location
 p <- p +
   new_scale_fill() +  # Reset the fill scale
   geom_fruit(
