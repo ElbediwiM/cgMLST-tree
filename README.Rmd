@@ -1,4 +1,4 @@
-                                                               Phylogenetic Tree Visualization with Annotations
+                                                             Phylogenetic Tree Visualization with Annotations
 
 
 ## Description
